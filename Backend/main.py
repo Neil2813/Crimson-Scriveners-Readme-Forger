@@ -1,5 +1,5 @@
 """
-Crimsor Scriveners Readme Forger — Backend (FastAPI)
+Crimson Scriveners Readme Forger — Backend (FastAPI)
 """
 # Load .env before any other imports so os.environ is populated
 from dotenv import load_dotenv
@@ -77,7 +77,7 @@ async def lifespan(app: FastAPI):
 
 app = FastAPI(
     title="CSRF API",
-    description="Crimsor Scriveners Readme Forger — Transform README files into professional reports.",
+    description="Crimson Scriveners Readme Forger — Transform README files into professional reports.",
     version="1.0.0",
     lifespan=lifespan,
     # Security: hide API schema from browser dev tools

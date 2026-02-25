@@ -17,7 +17,7 @@ export const HeroSection = () => {
             className="h-5 w-5 rounded-sm"
           />
           <span className="text-sm text-muted-foreground tracking-widest uppercase font-semibold">
-            Crimsor Scriveners Readme Forger
+            Crimson Scriveners Readme Forger
           </span>
         </div>
 

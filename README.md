@@ -1,4 +1,4 @@
-# Crimsor Scriveners Readme Forger (CSRF)
+# Crimson Scriveners Readme Forger (CSRF)
 
 > Transform GitHub-style README files into beautifully formatted, professional technical reports — available as PDF, DOCX, or HTML.
 
@@ -6,7 +6,7 @@
 
 ## What is CSRF?
 
-**Crimsor Scriveners Readme Forger** is a full-stack web application that takes any Markdown (`.md`) file and converts it into a professionally typeset document with:
+**Crimson Scriveners Readme Forger** is a full-stack web application that takes any Markdown (`.md`) file and converts it into a professionally typeset document with:
 
 - Structured cover page with title, date, and branding
 - Auto-generated Table of Contents
@@ -176,6 +176,6 @@ Both `/api/convert/preview` and `/api/convert/download` accept `multipart/form-d
 
 ## Branding
 
-**Application name:** Crimsor Scriveners Readme Forger  
+**Application name:** Crimson Scriveners Readme Forger  
 **Short form:** CSRF  
 **Logo:** `Frontend/public/CRIMSON SCRIVENERS.webp`

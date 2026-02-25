@@ -64,7 +64,7 @@ const Auth = () => {
               alt="CSRF Logo" 
               className="h-10 w-10 rounded-sm object-cover shadow-sm bg-white"
             />
-            <span className="text-2xl font-bold tracking-tight">Crimsor Scriveners Readme Forger</span>
+            <span className="text-2xl font-bold tracking-tight">Crimson Scriveners Readme Forger</span>
           </div>
           <h2 className="text-3xl font-bold mb-4">
             Create professional documents from your Markdown files

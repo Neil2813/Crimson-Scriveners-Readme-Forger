@@ -408,7 +408,7 @@ def render_html(
   <header class="doc-cover no-break">
     <div class="doc-title">{_esc(model.title)}</div>
     <div class="doc-rule"></div>
-    <div class="doc-meta">Report by Crimsor Scriveners &bull; CSRF</div>
+    <div class="doc-meta">Report by Crimson Scriveners &bull; CSRF</div>
     <div class="doc-generated">Generated: {_esc(gen_date)}</div>
   </header>
 

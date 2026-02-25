@@ -1,4 +1,4 @@
-# Crimsor Scriveners Readme Forger — Frontend
+# Crimson Scriveners Readme Forger — Frontend
 
 React + Vite + TypeScript + Tailwind CSS frontend for CSRF.
 
