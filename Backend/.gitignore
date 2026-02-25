@@ -19,6 +19,7 @@ ENV/
 # Environment / secrets
 .env
 *.env.local
+render.env
 
 # Database (SQLite — ephemeral on Render; use persistent disk or Postgres in prod)
 *.db
