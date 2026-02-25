@@ -30,12 +30,12 @@ const Auth = () => {
     try {
       if (isLogin) {
         await authApi.login(form.email, form.password);
-        toast({ title: "Welcome back!", description: "Redirecting to dashboard..." });
+        toast({ title: "Welcome back!", description: "Signed in successfully." });
       } else {
         await authApi.register(form.name, form.email, form.password);
-        toast({ title: "Account created!", description: "Redirecting to dashboard..." });
+        toast({ title: "Account created!", description: "You're now signed in." });
       }
-      setTimeout(() => navigate("/dashboard"), 800);
+      setTimeout(() => navigate("/"), 800);
     } catch (err: unknown) {
       const msg = err instanceof Error ? err.message : "Something went wrong";
       toast({ title: isLogin ? "Sign in failed" : "Registration failed", description: msg, variant: "destructive" });

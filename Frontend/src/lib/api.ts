@@ -208,8 +208,23 @@ export const convertApi = {
 
     const blob = await res.blob();
     const disposition = res.headers.get("Content-Disposition") ?? "";
-    const match = disposition.match(/filename="?([^"]+)"?/);
-    const filename = match?.[1] ?? `document.${format}`;
+    // Try filename*= (RFC 5987), then filename="..." quoted, then filename=... unquoted
+    let filename: string | null = null;
+    const rfcMatch = disposition.match(/filename\*=(?:UTF-8'')?([^;\r\n]+)/i);
+    if (rfcMatch) filename = decodeURIComponent(rfcMatch[1].replace(/"/g, ""));
+    if (!filename) {
+      const quotedMatch = disposition.match(/filename="([^"]+)"/);
+      if (quotedMatch) filename = quotedMatch[1];
+    }
+    if (!filename) {
+      const plainMatch = disposition.match(/filename=([^;\r\n]+)/);
+      if (plainMatch) filename = plainMatch[1].trim();
+    }
+    // Sensible fallback using the original file stem
+    if (!filename) {
+      const stem = file.name.replace(/\.md$/i, "").replace(/\s+/g, "_") || "document";
+      filename = `${stem}_report.${format}`;
+    }
     return { blob, filename };
   },
 };

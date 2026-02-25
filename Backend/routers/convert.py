@@ -125,7 +125,7 @@ async def convert_and_download(
         out_filename = f"{stem}_report.html"
     elif format == "docx":
         try:
-            data = generate_docx(model)
+            data = generate_docx(model, table_color=safe_color)
         except Exception as exc:
             logger.exception("DOCX generation failed")
             raise HTTPException(500, f"DOCX generation failed: {exc}")
@@ -133,7 +133,7 @@ async def convert_and_download(
         out_filename = f"{stem}_report.docx"
     else:  # pdf
         try:
-            data = generate_pdf(html)
+            data = generate_pdf(html, table_color=safe_color)
         except Exception as exc:
             logger.exception("PDF generation failed")
             raise HTTPException(500, f"PDF generation failed: {exc}")
@@ -157,7 +157,7 @@ async def convert_and_download(
             logger.warning(f"DB/file save failed: {e}")
 
     headers = {
-        "Content-Disposition": f'attachment; filename="{out_filename}"',
+        "Content-Disposition": f'attachment; filename="{out_filename}"; filename*=UTF-8\'\'{out_filename}',
         "Content-Length": str(len(data)),
     }
     return StreamingResponse(io.BytesIO(data), media_type=media_type, headers=headers)
