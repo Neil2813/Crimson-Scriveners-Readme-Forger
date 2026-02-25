@@ -107,7 +107,7 @@ npm run dev
 # → http://localhost:8080
 ```
 
-Open **http://localhost:8080** — the frontend proxies all API calls to the backend automatically.
+
 
 ---
 
@@ -159,15 +159,6 @@ Both `/api/convert/preview` and `/api/convert/download` accept `multipart/form-d
 | `VITE_API_BASE_URL` | Production | Your Render backend URL e.g. `https://csrf-api.onrender.com` |
 
 ---
-
-## Deployment
-
-Detailed step-by-step instructions for deploying on **Vercel + Render** are in **[host.md](host.md)**.
-
-Quick summary:
-1. Push `Backend/` → GitHub → connect to Render → set env vars
-2. Push `Frontend/` → GitHub → connect to Vercel → set `VITE_API_BASE_URL`
-3. Set `FRONTEND_URL` on Render to your Vercel URL
 
 ---
 
