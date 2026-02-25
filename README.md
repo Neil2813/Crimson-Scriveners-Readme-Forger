@@ -140,27 +140,6 @@ Both `/api/convert/preview` and `/api/convert/download` accept `multipart/form-d
 
 ---
 
-## Environment Variables
-
-### Backend (`.env`)
-
-| Variable | Required | Description |
-|---|---|---|
-| `JWT_SECRET_KEY` | ✅ | Long random secret — `python -c "import secrets; print(secrets.token_hex(32))"` |
-| `JWT_ALGORITHM` | No | Default: `HS256` |
-| `JWT_EXPIRE_MINUTES` | No | Default: `10080` (7 days) |
-| `FRONTEND_URL` | Production | Your Vercel URL e.g. `https://csrf.vercel.app` |
-| `FIREBASE_*` | Optional | Firebase credentials (leave empty to use SQLite) |
-
-### Frontend (`.env`)
-
-| Variable | Required | Description |
-|---|---|---|
-| `VITE_API_BASE_URL` | Production | Your Render backend URL e.g. `https://csrf-api.onrender.com` |
-
----
-
----
 
 ## Features
 
