@@ -1,0 +1,24 @@
+# ── Root monorepo .gitignore ──────────────────────────────────────────────────
+# Each sub-project (Backend/, Frontend/) has its own .gitignore.
+# This file covers root-level ignores.
+
+# OS
+.DS_Store
+Thumbs.db
+Desktop.ini
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.suo
+
+# Markdown — only README.md is committed at root
+# (host.md, researchpaper.md, etc. are excluded)
+*.md
+!README.md
+
+# Generated files that may land at root
+*.pdf
+*.docx
+*.db

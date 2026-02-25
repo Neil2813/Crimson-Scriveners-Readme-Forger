@@ -1,0 +1,38 @@
+# ── Core web framework ────────────────────────────────────────────────────────
+fastapi==0.115.6
+starlette==0.41.3
+uvicorn[standard]==0.32.1      # includes websockets, httptools, watchfiles
+
+# ── Environment & configuration ───────────────────────────────────────────────
+python-dotenv==1.0.1
+pydantic==2.10.4
+pydantic-settings==2.7.0
+pydantic_core==2.27.2
+email-validator==2.3.0         # required by pydantic's EmailStr (used in auth router)
+
+# ── HTTP & file upload ────────────────────────────────────────────────────────
+python-multipart==0.0.20       # required for FastAPI Form/File uploads
+httpx==0.28.1                  # async HTTP client
+
+# ── Authentication ────────────────────────────────────────────────────────────
+argon2-cffi==23.1.0            # password hashing
+python-jose[cryptography]==3.3.0  # JWT signing / verification
+
+# ── Database ──────────────────────────────────────────────────────────────────
+aiosqlite==0.20.0              # async SQLite driver
+aiofiles==24.1.0               # async file I/O
+
+# ── Document generation ───────────────────────────────────────────────────────
+python-docx==1.1.2             # DOCX output
+reportlab==4.2.5               # PDF output (fallback renderer)
+Pillow==11.0.0                 # image support in DOCX/PDF
+
+# ── Markdown parsing ──────────────────────────────────────────────────────────
+mistletoe==1.4.0               # Markdown → AST
+
+# ── HTML parsing (PDF renderer uses BeautifulSoup to walk rendered HTML) ──────
+beautifulsoup4==4.14.3
+lxml==6.0.2                    # fast BS4 parser
+
+# ── Optional: Firebase Admin (leave env vars empty to skip) ──────────────────
+firebase-admin==6.6.0

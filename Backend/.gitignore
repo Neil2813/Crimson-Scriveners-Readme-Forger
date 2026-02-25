@@ -1,0 +1,42 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.so
+*.egg
+*.egg-info/
+dist/
+build/
+.eggs/
+
+# Virtual environments
+.venv/
+venv/
+env/
+ENV/
+
+# Environment / secrets
+.env
+*.env.local
+
+# Database (SQLite — ephemeral on Render; use persistent disk or Postgres in prod)
+*.db
+*.db-shm
+*.db-wal
+
+# Generated output files
+outputs/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# IDE
+.idea/
+.vscode/
+*.swp
+
+# Markdown — only README.md is tracked; exclude research papers, guides, etc.
+*.md
+!README.md

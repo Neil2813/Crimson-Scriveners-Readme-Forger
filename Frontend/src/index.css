@@ -1,0 +1,128 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ── Design tokens — strict monochrome ─────────────────────────────────── */
+@layer base {
+  :root {
+    /* Backgrounds */
+    --background: 0 0% 4%;          /* near-black */
+    --foreground: 0 0% 96%;         /* near-white */
+
+    --card: 0 0% 7%;
+    --card-foreground: 0 0% 96%;
+
+    --popover: 0 0% 7%;
+    --popover-foreground: 0 0% 96%;
+
+    /* Primary = white on black */
+    --primary: 0 0% 96%;
+    --primary-foreground: 0 0% 4%;
+
+    /* Secondary = dark grey */
+    --secondary: 0 0% 12%;
+    --secondary-foreground: 0 0% 80%;
+
+    /* Muted */
+    --muted: 0 0% 10%;
+    --muted-foreground: 0 0% 50%;
+
+    /* Accent = light grey */
+    --accent: 0 0% 18%;
+    --accent-foreground: 0 0% 96%;
+
+    /* Destructive — kept slightly red for legibility */
+    --destructive: 0 60% 45%;
+    --destructive-foreground: 0 0% 96%;
+
+    --border: 0 0% 18%;
+    --input: 0 0% 14%;
+    --ring: 0 0% 60%;
+
+    --radius: 0.5rem;
+
+    /* No gradients, no glows */
+    --gradient-primary: linear-gradient(135deg, #fff, #ccc);
+    --shadow-card: 0 2px 12px hsl(0 0% 0% / 0.5);
+
+    --sidebar-background: 0 0% 7%;
+    --sidebar-foreground: 0 0% 96%;
+    --sidebar-primary: 0 0% 96%;
+    --sidebar-primary-foreground: 0 0% 4%;
+    --sidebar-accent: 0 0% 12%;
+    --sidebar-accent-foreground: 0 0% 80%;
+    --sidebar-border: 0 0% 18%;
+    --sidebar-ring: 0 0% 60%;
+  }
+}
+
+/* ── Reset ──────────────────────────────────────────────────────────────── */
+@layer base {
+  * {
+    @apply border-border;
+    animation-duration: 0ms !important;
+    animation-delay: 0ms !important;
+    transition-duration: 0ms !important;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+  }
+}
+
+/* ── Components ─────────────────────────────────────────────────────────── */
+@layer components {
+
+  /* Card — no blur, simple border */
+  .glass-card {
+    @apply bg-card border border-border rounded-lg;
+    box-shadow: var(--shadow-card);
+  }
+
+  /* Gradient text → just white */
+  .gradient-text {
+    color: hsl(var(--foreground));
+  }
+
+  /* Gradient border → plain 1px white border */
+  .gradient-border {
+    @apply border border-border/60;
+  }
+  .gradient-border::before {
+    display: none;
+  }
+
+  /* Gradient bg → solid white bg with black text */
+  .gradient-bg {
+    @apply bg-foreground text-background;
+  }
+
+  /* Remove decorative glow blobs */
+  .hero-glow,
+  .hero-glow-blue {
+    display: none !important;
+  }
+
+  /* Pulse glow animation → disabled */
+  .animate-pulse-glow {
+    animation: none !important;
+  }
+}
+
+/* ── Utilities ──────────────────────────────────────────────────────────── */
+@layer utilities {
+  .text-balance {
+    overflow-wrap: break-word;
+    word-break: break-word;
+    text-wrap: balance;
+  }
+
+  /* Hover transitions at zero duration (instant, still functional) */
+  .transition-all,
+  .transition-colors,
+  .transition {
+    transition-duration: 0ms !important;
+  }
+}
