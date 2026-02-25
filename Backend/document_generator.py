@@ -136,12 +136,12 @@ def generate_docx(model: DocumentModel) -> bytes:
             run = p.add_run(lang_hint + cb.code)
             run.font.name = "Cascadia Code"
             run.font.size = Pt(8.5)
-            run.font.color.rgb = RGBColor(205, 214, 244)
+            run.font.color.rgb = RGBColor(31, 41, 55)  # Dark grayish blue
             p.paragraph_format.left_indent = Pt(18)
             # Light gray background via shading
             pPr = p._p.get_or_add_pPr()
             shading = OxmlElement("w:shd")
-            shading.set(qn("w:fill"), "1E1E2E")
+            shading.set(qn("w:fill"), "F3F4F6")
             shading.set(qn("w:color"), "auto")
             shading.set(qn("w:val"), "clear")
             pPr.append(shading)
@@ -210,7 +210,7 @@ def generate_pdf(html_content: str) -> bytes:
     style_h3      = ParagraphStyle("H3",         fontSize=11, leading=16, textColor=gray,  fontName="Helvetica-Bold", spaceBefore=10, spaceAfter=3)
     style_body    = ParagraphStyle("Body",       fontSize=10, leading=16, textColor=gray,  fontName="Helvetica", spaceAfter=8, alignment=TA_JUSTIFY)
     style_bullet  = ParagraphStyle("Bullet",     fontSize=10, leading=14, textColor=gray,  fontName="Helvetica", leftIndent=16, spaceAfter=3, bulletIndent=4)
-    style_code    = ParagraphStyle("Code",       fontSize=8,  leading=12, textColor=colors.HexColor("#CDD6F4"), fontName="Courier", backColor=colors.HexColor("#1E1E2E"), leftIndent=12, rightIndent=12, spaceBefore=6, spaceAfter=6)
+    style_code    = ParagraphStyle("Code",       fontSize=8,  leading=12, textColor=colors.HexColor("#1F2937"), fontName="Courier", backColor=colors.HexColor("#F3F4F6"), leftIndent=12, rightIndent=12, spaceBefore=6, spaceAfter=6)
     style_toc_hdr = ParagraphStyle("TocHdr",     fontSize=9,  leading=14, textColor=accent, fontName="Helvetica-Bold", spaceAfter=4)
 
     soup = BeautifulSoup(html_content, "html.parser")
@@ -325,7 +325,7 @@ def generate_pdf(html_content: str) -> bytes:
                     lang_el = child.find(class_="doc-code-lang")
                     code_text = code_el.get_text()
                     if lang_el:
-                        story.append(Paragraph(f"[{html_mod.escape(lang_el.get_text())}]", ParagraphStyle("CodeLang", fontSize=7, fontName="Helvetica", textColor=light)))
+                        story.append(Paragraph(f"[{html_mod.escape(lang_el.get_text())}]", ParagraphStyle("CodeLang", fontSize=7, fontName="Helvetica-Bold", textColor=gray)))
                     try:
                         story.append(Preformatted(code_text, style_code))
                     except Exception:
